@@ -10,13 +10,13 @@ namespace SistemaDeTarefas.Data
         {
         }
 
-        public DbSet<UsuarioModel> Usuarios { get; set; }
-        public DbSet<TarefaModel> Tarefa { get; set; }
+        public DbSet<UserModel> User { get; set; }
+        public DbSet<TaskModel> Task { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UsuarioMap());
-            modelBuilder.ApplyConfiguration(new TarefaMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new TaskMap());
 
             base.OnModelCreating(modelBuilder);
         }

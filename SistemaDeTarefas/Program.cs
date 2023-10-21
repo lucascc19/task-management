@@ -23,7 +23,7 @@ namespace SistemaDeTarefas
                     options => options.UseSqlServer(builder.Configuration.GetConnectionString("Database"))
                 );
 
-            builder.Services.AddScoped<IUsuarioRepositorio, UserRepository>(); 
+            builder.Services.AddScoped<IUserRepository, UserRepository>(); 
 
             var app = builder.Build();
 

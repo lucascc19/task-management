@@ -2,7 +2,7 @@
 
 namespace SistemaDeTarefas.Enums
 {
-    public enum StatusTarefa
+    public enum Status
     {
         [Description("A Fazer")]
         ToDo = 1,
