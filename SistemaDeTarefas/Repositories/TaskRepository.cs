@@ -23,7 +23,9 @@ namespace SistemaDeTarefas.Repositories
 
         public async Task<List<TaskModel>> GetTaskList()
         {
-            return await _dbContext.Task.ToListAsync();
+            return await _dbContext.Task
+                .Include(x => x.User)
+                .ToListAsync();
         }
 
         public async Task<TaskModel> AddTask(TaskModel task)
