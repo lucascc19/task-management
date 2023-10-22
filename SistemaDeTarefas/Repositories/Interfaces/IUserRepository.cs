@@ -6,8 +6,8 @@ namespace SistemaDeTarefas.Repositories.Interfaces
     {
         Task<List<UserModel>> GetUserList();
         Task<UserModel> GetUserById(int id);
-        Task<UserModel> AddUser(UserModel usuario);
-        Task<UserModel> UpdateUser(UserModel usuario, int id);
+        Task<UserModel> AddUser(UserModel user);
+        Task<UserModel> UpdateUser(UserModel user, int id);
         Task<bool> DeleteUser(int id);
     }
 }

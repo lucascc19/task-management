@@ -24,42 +24,42 @@ namespace SistemaDeTarefas.Repositories
             return await _dbContext.User.ToListAsync();
         }
 
-        public async Task<UserModel> AddUser(UserModel usuario)
+        public async Task<UserModel> AddUser(UserModel user)
         {
-            await _dbContext.AddAsync(usuario);
+            await _dbContext.AddAsync(user);
             _dbContext.SaveChanges();
 
-            return usuario;
+            return user;
         }
 
-        public async Task<UserModel> UpdateUser(UserModel usuario, int id)
+        public async Task<UserModel> UpdateUser(UserModel user, int id)
         {
-            UserModel usuarioPorId = await GetUserById(id);
+            UserModel userId = await GetUserById(id);
 
-            if(usuarioPorId == null)
+            if(userId == null)
             {
                 throw new Exception($"Usuário para o ID: {id} não foi encontrado no banco de dados.");
             }
 
-            usuarioPorId.Name = usuario.Name;
-            usuarioPorId.Email = usuario.Email;
+            userId.Name = user.Name;
+            userId.Email = user.Email;
 
-            _dbContext.User.Update(usuarioPorId);
+            _dbContext.User.Update(userId);
             _dbContext.SaveChanges();
 
-            return usuarioPorId;
+            return userId;
         }
 
         public async Task<bool> DeleteUser(int id)
         {
-            UserModel usuarioPorId = await GetUserById(id);
+            UserModel userId = await GetUserById(id);
 
-            if (usuarioPorId == null)
+            if (userId == null)
             {
                 throw new Exception($"Usuário para o ID: {id} não foi encontrado no banco de dados.");
             }
 
-            _dbContext.User.Remove(usuarioPorId);
+            _dbContext.User.Remove(userId);
             _dbContext.SaveChanges();
 
             return true;
